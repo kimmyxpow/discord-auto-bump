@@ -15,21 +15,11 @@ Self-bots are against Discord ToS. Use at your own risk!
 npm install
 ```
 
-3. Edit `config.json`:
+3. Create `.env` file or rename `.env.example` to `.env` and fill it with your Discord token & channel ID:
 
-```json
-{
-    "token": "your_discord_token", // Your Discord token
-    "bumpChannel": "your_channel_id", // Channel ID where bot will bump
-    "constants": {
-        "disboardBotId": "302050872383242240",
-        "bumpCommand": "bump",
-        "intervals": {
-            "min": 7200000, // 2 hours
-            "max": 9000000 // 2.5 hours
-        }
-    }
-}
+```env
+TOKEN=your_discord_token
+BUMP_CHANNEL=your_channel_id
 ```
 
 4. Run:
@@ -78,8 +68,3 @@ console.log(`%cYou now have your token in the clipboard!`, 'font-size: 16px')
 2. Right-click channel → Copy ID
 
 Never share your Discord token! 🤫
-
-```
-
-Sekarang kode sudah menggunakan JavaScript biasa dan dapat dijalankan dengan Node.js. Pastikan untuk menginstall dependency yang diperlukan dengan `npm install discord.js-selfbot-v13`.
-```
