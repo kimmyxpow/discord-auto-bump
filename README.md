@@ -1,59 +1,80 @@
-# Auto-Bumper-Discord
+# Discord Auto Bump Bot
 
-This is an automated Discord bot designed to bump your Discord server using the `!d bump` command provided by the Disboard bot. It runs as a self-bot and bumps your server at random intervals between 2 and 3 hours.
+Simple script to auto bump your Discord server using Disboard bot.
 
-# Features
+## ⚠️ Note
 
-- Auto Bump: Automatically sends the bump command in the specified channel at random intervals to prevent detection.
-- Randomized Timing: Intervals are randomized between 2 hours and 2.5 hours to avoid detection.
+Self-bots are against Discord ToS. Use at your own risk!
 
-# Requirements
+## 🚀 Quick Start
 
-- Node.js v16 or higher
-- A Discord account token
-- Channel ID where bumps will occur
-- The Disboard bot added to your server
+1. Install [Bun](https://bun.sh/)
+2. Install dependencies:
 
-# Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/blackmagic2023/Auto-Bumper-Discord.git
-cd discordautobump
+bun install
 ```
-2. Install dependencies: Make sure you have Node.js installed. Install the required Node.js packages using:
+
+3. Edit `config.json`:
+
+```json
+{
+    "token": "your_discord_token", // Your Discord token
+    "bumpChannel": "your_channel_id", // Channel ID where bot will bump
+    "constants": {
+        "disboardBotId": "302050872383242240",
+        "bumpCommand": "bump",
+        "intervals": {
+            "min": 7200000, // 2 hours
+            "max": 9000000 // 2.5 hours
+        }
+    }
+}
+```
+
+4. Run:
+
 ```bash
-npm install
-```
-3. Setup `.env` file: Create a `.env` file in the root directory of the project, and add your account token and the channel ID where you want to bump your server.
-
-Example `.env` file:
-```
-TOKEN="your_discord_token_here"
-BUMP_CHANNEL="your_bump_channel_id_here"
-```
-4. Run the bot: Once everything is set up, you can run the bot using:
-```bash
-npm start
+bun index.ts
 ```
 
-# How It Works
+## 🔍 How to get Discord token & Channel ID
 
-1. Selfbot: This bot operates as a selfbot, meaning it uses your own Discord account's token to send the `!d bump` command in the specified channel.
-2. Randomized Timing: The bot sends the bump command (`/bump`) at random intervals between 2 hours (7,200,000 milliseconds) and 2.5 hours (9,000,000 milliseconds).
-3. Bump Command: The bot fetches the channel using the channel ID provided in the `.env` file, then uses Discord's slash command API to send the `/bump` command to the Disboard bot.
+### Discord Token
 
-# Important Notes
+1. Open Discord in browser (Discord.com)
+2. Press F12 to open DevTools
+3. Go to Console tab
+4. Paste this code:
 
-- Selfbots are against Discord’s Terms of Service: Running a selfbot can get your account banned, so proceed with caution. Always ensure you have the proper permissions and are aware of the risks.
-- Environmental Variables: Keep your `.env` file secure as it contains your Discord token. Never share it publicly.
+```js
+window.webpackChunkdiscord_app.push([
+    [Math.random()],
+    {},
+    (req) => {
+        if (!req.c) return
+        for (const m of Object.keys(req.c)
+            .map((x) => req.c[x].exports)
+            .filter((x) => x)) {
+            if (m.default && m.default.getToken !== undefined) {
+                return copy(m.default.getToken())
+            }
+            if (m.getToken !== undefined) {
+                return copy(m.getToken())
+            }
+        }
+    },
+])
+window.webpackChunkdiscord_app.pop()
+console.log('%cWorked!', 'font-size: 50px')
+console.log(`%cYou now have your token in the clipboard!`, 'font-size: 16px')
+```
 
-# Example Usage
+5. Token will be copied to your clipboard
 
-1. Fetch the channel: The bot fetches the channel based on the ID provided in the `.env` file.
-2. Bumping: It sends the `/bump` command using `channel.sendSlash` to the Disboard bot.
-3. Random Timer: The bump function repeats at randomized intervals to prevent detection.
+### Channel ID
 
-# License
+1. Enable Developer Mode in Discord settings
+2. Right-click channel → Copy ID
 
-This project is licensed under the MIT License.
+Never share your Discord token! 🤫

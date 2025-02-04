@@ -1,0 +1,12 @@
+{
+    "token": "your_discord_token",
+    "bumpChannel": "your_channel_id",
+    "constants": {
+        "disboardBotId": "302050872383242240",
+        "bumpCommand": "bump",
+        "intervals": {
+            "min": 7200000,
+            "max": 9000000
+        }
+    }
+}
