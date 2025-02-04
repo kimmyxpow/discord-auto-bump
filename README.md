@@ -12,7 +12,7 @@ Self-bots are against Discord ToS. Use at your own risk!
 2. Install dependencies:
 
 ```bash
-npm install discord.js-selfbot-v13
+npm install
 ```
 
 3. Edit `config.json`:
