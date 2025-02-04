@@ -1,25 +1,23 @@
-import { Client, TextChannel } from 'discord.js-selfbot-v13'
-import config from './config.json'
+const { Client } = require('discord.js-selfbot-v13')
+const config = require('./config.json')
 
 const client = new Client()
 
-const getRandomDelay = (): number => {
+const getRandomDelay = () => {
     const { min, max } = config.constants.intervals
     return Math.round(Math.random() * (max - min + 1)) + min
 }
 
-const sendBump = async (channel: TextChannel): Promise<void> => {
+const sendBump = async (channel) => {
     try {
-        if ('sendSlash' in channel) {
-            await channel.sendSlash(config.constants.disboardBotId, config.constants.bumpCommand)
-            console.count('Bumped!')
-        }
+        await channel.sendSlash(config.constants.disboardBotId, config.constants.bumpCommand)
+        console.count('Bumped!')
     } catch (error) {
         console.error('Failed to bump:', error)
     }
 }
 
-const startBumpLoop = (channel: TextChannel): void => {
+const startBumpLoop = (channel) => {
     const delay = getRandomDelay()
     setTimeout(() => {
         sendBump(channel)
@@ -37,8 +35,8 @@ client.on('ready', async () => {
             throw new Error('Invalid channel or missing permissions')
         }
 
-        await sendBump(channel as TextChannel)
-        startBumpLoop(channel as TextChannel)
+        await sendBump(channel)
+        startBumpLoop(channel)
     } catch (error) {
         console.error('Setup failed:', error)
         process.exit(1)

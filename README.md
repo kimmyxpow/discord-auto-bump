@@ -8,11 +8,11 @@ Self-bots are against Discord ToS. Use at your own risk!
 
 ## 🚀 Quick Start
 
-1. Install [Bun](https://bun.sh/)
+1. Install [Node.js](https://nodejs.org/)
 2. Install dependencies:
 
 ```bash
-bun install
+npm install discord.js-selfbot-v13
 ```
 
 3. Edit `config.json`:
@@ -35,7 +35,7 @@ bun install
 4. Run:
 
 ```bash
-bun index.ts
+node index.js
 ```
 
 ## 🔍 How to get Discord token & Channel ID
@@ -78,3 +78,8 @@ console.log(`%cYou now have your token in the clipboard!`, 'font-size: 16px')
 2. Right-click channel → Copy ID
 
 Never share your Discord token! 🤫
+
+```
+
+Sekarang kode sudah menggunakan JavaScript biasa dan dapat dijalankan dengan Node.js. Pastikan untuk menginstall dependency yang diperlukan dengan `npm install discord.js-selfbot-v13`.
+```
