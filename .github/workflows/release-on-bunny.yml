@@ -34,5 +34,5 @@ jobs:
       - name: Publish the script to Bunny
         uses: "BunnyWay/actions/deploy-script@main"
         with:
-          script_id: 29365
+          script_id: 29369
           file: "ex-index.js"
