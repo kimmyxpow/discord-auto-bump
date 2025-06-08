@@ -35,4 +35,4 @@ jobs:
         uses: "BunnyWay/actions/deploy-script@main"
         with:
           script_id: 29365
-          file: "index.js"
+          file: "ex-index.js"
